@@ -1,0 +1,2 @@
+# APOLLO FEDERATED GATEWAY
+Federated GraphQL Service

@@ -1,0 +1,81 @@
+mainDeployment:
+  replicaCount: 2
+  containers:
+    app:
+      pullPolicy: IfNotPresent
+      image:
+        repository: jordanyong/apollo-federated-gateway
+      ports:
+        - name: http
+          containerPort: 4000
+      resources:
+        limits:
+          cpu: 150m
+          memory: 150Mi
+        requests:
+          cpu: 100m
+          memory: 100Mi
+      readinessProbe:
+        httpGet:
+          path: /.well-known/apollo/server-health
+          port: http
+        initialDelaySeconds: 15
+        periodSeconds: 10
+      livenessProbe:
+        httpGet:
+          path: /.well-known/apollo/server-health
+          port: http
+        initialDelaySeconds: 15
+        periodSeconds: 20
+      startupProbe:
+        httpGet:
+          path: /.well-known/apollo/server-health
+          port: http
+        failureThreshold: 30
+        periodSeconds: 10
+      env:
+      - name: PORT
+        value: "4000"
+      - name: JWT_SECRET
+        value: "secret"
+      - name: JWT_ALGORITHM
+        value: "HS256"
+
+service:
+  ports:
+    - port: 80
+      targetPort: 4000
+      protocol: TCP
+      name: http
+
+hpa:
+  minReplicas: 1
+  maxReplicas: 5
+  metrics:
+    - pods:
+        metricName: "pod_name:container_cpu_usage:ratio"
+        targetAverageValue: 0.6
+      type: "Pods"
+
+gateway:
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - 'api.home.local'
+
+vs:
+  hosts:
+    - 'api.home.local'
+  gateways:
+    - apollo-federated-gateway
+  http:
+    - route:
+      - destination:
+          host: apollo-federated-gateway
+          port:
+            number: 80

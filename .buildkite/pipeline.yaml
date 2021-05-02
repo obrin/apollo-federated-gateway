@@ -1,0 +1,11 @@
+env:
+  IMAGE: jordanyong/apollo-federated-gateway:${BUILDKITE_COMMIT}
+steps:
+  - label: ':docker: Build & Push'
+    command: pack build ${IMAGE} --builder gcr.io/buildpacks/builder:v1 && docker push ${IMAGE}
+
+  - wait
+
+  - label: ':rocket: Deploy'
+    plugins:
+      - https://github.com/obrin/buildkite-deploy-plugin.git#v1.0.9:

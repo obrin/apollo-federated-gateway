@@ -1,0 +1,11 @@
+apiVersion: v2
+description: apollo-federated-gateway
+name: apollo-federated-gateway
+version: 0.1.2
+type: application
+appVersion: 0.1.2
+
+dependencies:
+  - name: common
+    version: ~0.1.5
+    repository: https://obrin.github.io/helm/
