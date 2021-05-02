@@ -15,18 +15,6 @@ mainDeployment:
         requests:
           cpu: 100m
           memory: 100Mi
-      readinessProbe:
-        httpGet:
-          path: /.well-known/apollo/server-health
-          port: http
-        initialDelaySeconds: 30
-        periodSeconds: 10
-      livenessProbe:
-        httpGet:
-          path: /.well-known/apollo/server-health
-          port: http
-        initialDelaySeconds: 30
-        periodSeconds: 20
       env:
       - name: PORT
         value: "4000"
