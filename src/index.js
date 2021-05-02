@@ -3,6 +3,7 @@ const express = require('express')
 const expressJwt = require('express-jwt')
 const { ApolloServer } = require('apollo-server-express')
 const config = require('./config')
+const { check } = require('./health-check')
 
 const PORT = config.get('port')
 const JWT_SECRET = config.get('jwt.secret')
@@ -43,6 +44,8 @@ const gateway = new ApolloGateway({
 ;(async () => {
 
   try {
+    await check()
+
     const app = express()
 
     app.use(
