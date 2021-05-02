@@ -44,7 +44,7 @@ const gateway = new ApolloGateway({
 ;(async () => {
 
   try {
-    await check()
+    // await check()
 
     const app = express()
 

@@ -19,20 +19,14 @@ mainDeployment:
         httpGet:
           path: /.well-known/apollo/server-health
           port: http
-        initialDelaySeconds: 15
+        initialDelaySeconds: 30
         periodSeconds: 10
       livenessProbe:
         httpGet:
           path: /.well-known/apollo/server-health
           port: http
-        initialDelaySeconds: 15
+        initialDelaySeconds: 30
         periodSeconds: 20
-      startupProbe:
-        httpGet:
-          path: /.well-known/apollo/server-health
-          port: http
-        failureThreshold: 30
-        periodSeconds: 10
       env:
       - name: PORT
         value: "4000"
