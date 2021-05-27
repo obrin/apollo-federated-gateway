@@ -60,6 +60,8 @@ const gateway = new ApolloGateway({
       gateway,
       engine: false,
       subscriptions: false,
+      introspection: true,
+      playground: true,
       context: ({ req }) => {
         const account = req.user || null
         return  { req, account }
