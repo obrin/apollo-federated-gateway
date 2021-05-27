@@ -1,5 +1,6 @@
 const { ApolloGateway, RemoteGraphQLDataSource } = require('@apollo/gateway')
 const express = require('express')
+const cors = require('cors')
 const expressJwt = require('express-jwt')
 const { ApolloServer } = require('apollo-server-express')
 const config = require('./config')
@@ -48,6 +49,7 @@ const gateway = new ApolloGateway({
 
     const app = express()
 
+    app.use(cors())
     app.use(
       expressJwt({
         secret: JWT_SECRET,
