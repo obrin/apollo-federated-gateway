@@ -1,9 +1,7 @@
-env:
-  IMAGE: jordanyong/apollo-federated-gateway:${BUILDKITE_COMMIT}
 steps:
   - label: ':docker: Build & Push'
     plugins:
-      - https://github.com/obrin/buildkite-container-plugin.git#v1.0.0:
+      - https://github.com/obrin/buildkite-container-plugin.git#v1.0.1:
 
   - wait
 
