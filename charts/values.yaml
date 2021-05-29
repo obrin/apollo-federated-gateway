@@ -49,6 +49,15 @@ gateway:
         protocol: HTTP
       hosts:
         - 'api.home.local'
+    - port:
+        number: 443
+        name: https
+        protocol: HTTPS
+      tls:
+        mode: SIMPLE
+        credentialName: home-local-cert
+      hosts:
+      - "api.home.local"
 
 vs:
   hosts:
