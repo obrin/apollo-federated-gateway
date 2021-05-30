@@ -70,11 +70,11 @@ vs:
           prefix: /.well-known
       - uri:
           prefix: /graphql
-    - route:
-      - destination:
-          host: apollo-federated-gateway
-          port:
-            number: 80
+      route:
+        - destination:
+            host: apollo-federated-gateway
+            port:
+              number: 80
       # corsPolicy:
       #   allowMethods:
       #     - POST
