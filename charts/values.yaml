@@ -65,6 +65,14 @@ vs:
   gateways:
     - apollo-federated-gateway
   http:
+    - corsPolicy:
+      allowMethods:
+        - POST
+        - GET
+        - PUT
+        - PATCH
+        - DELETE
+        - OPTIONS
     - route:
       - destination:
           host: apollo-federated-gateway
