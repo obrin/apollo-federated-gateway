@@ -65,19 +65,16 @@ vs:
   gateways:
     - apollo-federated-gateway
   http:
-    - match:
-      - uri:
-          exact: /graphql
-        corsPolicy:
-          allowMethods:
-            - POST
-            - GET
-            - PUT
-            - PATCH
-            - DELETE
-            - OPTIONS
     - route:
       - destination:
           host: apollo-federated-gateway
           port:
             number: 80
+      corsPolicy:
+        allowMethods:
+          - POST
+          - GET
+          - PUT
+          - PATCH
+          - DELETE
+          - OPTIONS
