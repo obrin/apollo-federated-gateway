@@ -70,9 +70,10 @@ const gateway = new ApolloGateway({
       }
     })
 
+    await server.start()
+
     server.applyMiddleware({ app })
 
-    // await server.start()
 
     app.listen({ port: PORT }, () => {
       console.log(`🚀 v1 Server ready at http://localhost:${PORT}:${server.graphqlPath}`)
