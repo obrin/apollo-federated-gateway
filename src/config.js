@@ -10,7 +10,6 @@ const config = convict({
     env: 'SERVICE_LIST',
     format: '*',
     default: [
-      {"name":"review","url":"http://sample-review-service.sample-review-service.svc.cluster.local"},
       {"name":"account","url":"http://sample-account-service.sample-account-service.svc.cluster.local"},
       {"name":"product","url":"http://sample-product-service.sample-product-service.svc.cluster.local"}
     ]
