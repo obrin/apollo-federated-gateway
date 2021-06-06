@@ -65,23 +65,23 @@ vs:
   gateways:
     - apollo-federated-gateway
   http:
-    - match:
-      - uri:
-          prefix: /.well-known
-      - uri:
-          prefix: /graphql
+    # - match:
+    #   - uri:
+    #       prefix: /.well-known
+    #   - uri:
+    #       prefix: /graphql
       route:
         - destination:
             host: apollo-federated-gateway
             port:
               number: 80
-      corsPolicy:
-        allowOrigins:
-          - regex: "."
-        allowMethods:
-          - POST
-          - GET
-          - PUT
-          - PATCH
-          - DELETE
-          - OPTIONS
+      # corsPolicy:
+      #   allowOrigins:
+      #     - regex: "."
+      #   allowMethods:
+      #     - POST
+      #     - GET
+      #     - PUT
+      #     - PATCH
+      #     - DELETE
+      #     - OPTIONS
