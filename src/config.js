@@ -12,7 +12,8 @@ const config = convict({
     default: [
       {"name":"account","url":"http://sample-account-service.sample-account-service.svc.cluster.local"},
       {"name":"product","url":"http://sample-product-service.sample-product-service.svc.cluster.local"},
-      {"name":"inventory","url":"http://sample-inventory-service.sample-inventory-service.svc.cluster.local"}
+      {"name":"inventory","url":"http://sample-inventory-service.sample-inventory-service.svc.cluster.local"},
+      {"name":"review","url":"http://sample-review-service.sample-review-service.svc.cluster.local"}
     ]
   },
   env: {
