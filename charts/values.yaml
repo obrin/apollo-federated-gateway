@@ -75,13 +75,13 @@ vs:
             host: apollo-federated-gateway
             port:
               number: 80
-    # corsPolicy:
-    #   allowOrigins:
-    #     - regex: "."
-    #   allowMethods:
-    #     - POST
-    #     - GET
-    #     - PUT
-    #     - PATCH
-    #     - DELETE
-    #     - OPTIONS
+      corsPolicy:
+        allowOrigins:
+          - regex: "."
+        allowMethods:
+          - POST
+          - GET
+          - PUT
+          - PATCH
+          - DELETE
+          - OPTIONS
