@@ -65,11 +65,6 @@ vs:
   gateways:
     - apollo-federated-gateway
   http:
-    # - match:
-    #   - uri:
-    #       prefix: /.well-known
-    #   - uri:
-    #       prefix: /graphql
     - route:
         - destination:
             host: apollo-federated-gateway
