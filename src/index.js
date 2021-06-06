@@ -49,7 +49,7 @@ const gateway = new ApolloGateway({
 
     const app = express()
 
-    app.use(cors())
+    app.use(cors({methods: ["GET", "POST", "OPTIONS"]}))
     app.use(
       expressJwt({
         secret: JWT_SECRET,
