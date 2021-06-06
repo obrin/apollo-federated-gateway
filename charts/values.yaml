@@ -77,7 +77,7 @@ vs:
               number: 80
       corsPolicy:
         allowOrigins:
-          - exact: "*"
+          - regexp: "*"
         allowMethods:
           - POST
           - GET
