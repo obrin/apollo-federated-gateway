@@ -16,12 +16,12 @@ mainDeployment:
           cpu: 100m
           memory: 100Mi
       env:
-      - name: PORT
-        value: "4000"
-      - name: JWT_SECRET
-        value: "secret"
-      - name: JWT_ALGORITHM
-        value: "HS256"
+        - name: PORT
+          value: "4000"
+        - name: JWT_SECRET
+          value: "secret"
+        - name: JWT_ALGORITHM
+          value: "HS256"
 
 service:
   ports:
@@ -48,25 +48,38 @@ gateway:
         name: http
         protocol: HTTP
       hosts:
-        - 'api.home.local'
+        - "api.home.local"
     - port:
         number: 443
         name: https
         protocol: HTTPS
       tls:
         mode: SIMPLE
-        credentialName: home-local-cert
+        credentialName: api-home-local-cert
       hosts:
-      - "api.home.local"
+        - "api.home.local"
 
 vs:
   hosts:
-    - 'api.home.local'
+    - "api.home.local"
   gateways:
     - apollo-federated-gateway
   http:
     - route:
-      - destination:
-          host: apollo-federated-gateway
-          port:
-            number: 80
+        - destination:
+            host: apollo-federated-gateway
+            port:
+              number: 80
+      corsPolicy:
+        allowOrigins:
+          - regex: "."
+        allowMethods:
+          - POST
+          - GET
+          - PUT
+          - PATCH
+          - DELETE
+          - OPTIONS
+        allowHeaders:
+          - content-type
+          - authorization

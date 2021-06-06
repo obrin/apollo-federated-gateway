@@ -49,7 +49,7 @@ const gateway = new ApolloGateway({
 
     const app = express()
 
-    app.use(cors())
+    app.use(cors({methods: ["GET", "POST", "OPTIONS"]}))
     app.use(
       expressJwt({
         secret: JWT_SECRET,
@@ -70,7 +70,10 @@ const gateway = new ApolloGateway({
       }
     })
 
+    await server.start()
+
     server.applyMiddleware({ app })
+
 
     app.listen({ port: PORT }, () => {
       console.log(`🚀 v1 Server ready at http://localhost:${PORT}:${server.graphqlPath}`)
