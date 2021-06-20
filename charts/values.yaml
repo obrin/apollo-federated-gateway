@@ -63,7 +63,7 @@ vs:
   hosts:
     - "api.home.local"
   gateways:
-    - apollo-federated-gateway
+    - apollo-federated-gateway/apollo-federated-gateway
   http:
     - route:
         - destination:
