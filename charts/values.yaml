@@ -85,7 +85,7 @@ vs:
           - authorization
 
 vs2:
-  fullnameOverride: "store"
+  nameOverride: "store"
   hosts:
     - "store.home.local"
   gateways:
