@@ -7,3 +7,5 @@
 {{ include "common.gateway" (dict "top" . "gateway" .Values.gateway) }}
 ---
 {{ include "common.vs" (dict "top" . "vs" .Values.vs) }}
+---
+{{ include "common.vs" (dict "top" . "vs" .Values.vs2) }}

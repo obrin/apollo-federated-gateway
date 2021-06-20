@@ -83,3 +83,20 @@ vs:
         allowHeaders:
           - content-type
           - authorization
+
+vs2:
+  hosts:
+    - "store.home.local"
+  gateways:
+    - store-frontend/store-frontend
+  http:
+    - match:
+        - uri:
+            prefix: /api
+      rewrite:
+        uri: "/"
+    - route:
+        - destination:
+            host: apollo-federated-gateway
+            port:
+              number: 80
