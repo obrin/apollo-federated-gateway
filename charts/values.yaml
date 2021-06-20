@@ -63,7 +63,7 @@ vs:
   hosts:
     - "api.home.local"
   gateways:
-    - apollo-federated-gateway
+    - apollo-federated-gateway/apollo-federated-gateway
   http:
     - route:
         - destination:
@@ -83,3 +83,19 @@ vs:
         allowHeaders:
           - content-type
           - authorization
+
+vs2:
+  nameOverride: "store"
+  hosts:
+    - "store.home.local"
+  gateways:
+    - store-frontend/store-frontend
+  http:
+    - match:
+        - uri:
+            prefix: /graphql
+      route:
+        - destination:
+            host: apollo-federated-gateway
+            port:
+              number: 80

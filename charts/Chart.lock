@@ -1,0 +1,6 @@
+dependencies:
+- name: common
+  repository: https://obrin.github.io/helm/
+  version: 0.1.5
+digest: sha256:f013feb32ee07685a01125777b953754173980b4abdff1d6f39aff201072cf48
+generated: "2021-06-20T18:48:53.173012+02:00"
