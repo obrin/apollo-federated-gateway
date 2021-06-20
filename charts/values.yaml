@@ -96,7 +96,7 @@ vs2:
             prefix: /api
       rewrite:
         uri: "/"
-    - route:
+      route:
         - destination:
             host: apollo-federated-gateway
             port:
