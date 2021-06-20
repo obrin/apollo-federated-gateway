@@ -93,9 +93,9 @@ vs2:
   http:
     - match:
         - uri:
-            prefix: /api
+            prefix: /api/
       rewrite:
-        uri: "/"
+        uri: /
       route:
         - destination:
             host: apollo-federated-gateway
