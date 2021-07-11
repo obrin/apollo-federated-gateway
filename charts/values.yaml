@@ -55,7 +55,7 @@ gateway:
         protocol: HTTPS
       tls:
         mode: SIMPLE
-        credentialName: api-home-local-cert
+        credentialName: home-local-cert
       hosts:
         - "api.home.local"
 
