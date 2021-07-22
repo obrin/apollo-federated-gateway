@@ -88,8 +88,10 @@ vs2:
   nameOverride: "store"
   hosts:
     - "store.home.local"
+    - "voyager.home.local"
   gateways:
     - store-frontend/store-frontend
+    - graphql-voyager/graphql-voyager
   http:
     - match:
         - uri:
